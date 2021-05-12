@@ -17,6 +17,9 @@ type Query {
 
   """Get all the recipes from around the world """
   recipes: [Recipe!]!
+
+  """Get all the recipes from around the world """
+  recipesByTitles(recipeTitles: [String!]!): [Recipe!]!
 }
 
 """Object representing cooking recipe"""

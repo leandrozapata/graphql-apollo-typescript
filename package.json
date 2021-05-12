@@ -9,7 +9,6 @@
   "author": "Leandro Zapata",
   "license": "ISC",
   "dependencies": {
-    "D": "^1.0.0",
     "apollo-server": "^2.23.0",
     "apollo-server-express": "^2.23.0",
     "class-validator": "^0.13.1",

@@ -37,6 +37,16 @@ export class RecipeResolver implements ResolverInterface<Recipe> {
         return await this.items;
     }
 
+    @Query(returns => [Recipe], { description: "Get all the recipes from around the world " })
+    async recipesByTitles(@Arg("recipeTitles", type => [String]) recipeTitles: [String]): Promise<Recipe[]> {
+        let recipes: Recipe[] = new Array<Recipe>();
+        recipeTitles.forEach(title => {
+            const rc: Recipe | undefined = this.items.find(recipe => recipe.title === title);
+            if (rc) return recipes.push(rc);
+        });
+        return recipes;
+    }
+
     @Mutation(returns => Recipe)
     async addRecipe(@Arg("recipe") recipeInput: RecipeInput): Promise<Recipe> {
         const recipe = Object.assign(new Recipe(), {

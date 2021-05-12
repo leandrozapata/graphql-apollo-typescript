@@ -53,6 +53,17 @@ let RecipeResolver = class RecipeResolver {
             return yield this.items;
         });
     }
+    recipesByTitles(recipeTitles) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let recipes = new Array();
+            recipeTitles.forEach(title => {
+                const rc = this.items.find(recipe => recipe.title === title);
+                if (rc)
+                    return recipes.push(rc);
+            });
+            return recipes;
+        });
+    }
     addRecipe(recipeInput) {
         return __awaiter(this, void 0, void 0, function* () {
             const recipe = Object.assign(new recipe_1.Recipe(), {
@@ -82,6 +93,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], RecipeResolver.prototype, "recipes", null);
+__decorate([
+    type_graphql_1.Query(returns => [recipe_1.Recipe], { description: "Get all the recipes from around the world " }),
+    __param(0, type_graphql_1.Arg("recipeTitles", type => [String])),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", Promise)
+], RecipeResolver.prototype, "recipesByTitles", null);
 __decorate([
     type_graphql_1.Mutation(returns => recipe_1.Recipe),
     __param(0, type_graphql_1.Arg("recipe")),
