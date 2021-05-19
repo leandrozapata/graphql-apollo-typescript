@@ -4,11 +4,12 @@ import * as path from "path";
 import { buildSchema } from "type-graphql";
 
 import { RecipeResolver } from "./resolvers/recipe";
+import { ItemResolver } from "./resolvers/item";
 
 async function bootstrap() {
   // build TypeGraphQL executable schema
   const schema = await buildSchema({
-    resolvers: [RecipeResolver],
+    resolvers: [RecipeResolver, ItemResolver],
     // automatically create `schema.gql` file with schema definition in current folder
     emitSchemaFile: path.resolve(__dirname, "schema.gql"),
   });

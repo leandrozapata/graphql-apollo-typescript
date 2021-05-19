@@ -3,16 +3,36 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""Object representing a Address"""
+type Address {
+  cityName: String!
+  stateId: String!
+  stateName: String!
+}
+
 """
 The javascript `Date` as string. Type represents date and time as the ISO Date string.
 """
 scalar DateTime
+
+"""Object representing a search item"""
+type Item {
+  address: Address!
+  currencyId: String!
+  id: String!
+  price: Int!
+  siteId: String!
+  thumbail: String!
+  title: String!
+}
 
 type Mutation {
   addRecipe(recipe: RecipeInput!): Recipe!
 }
 
 type Query {
+  """Get Search Api Results """
+  items(query: String!): [Item!]!
   recipe(title: String!): Recipe
 
   """Get all the recipes from around the world """

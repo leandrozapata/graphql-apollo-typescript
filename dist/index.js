@@ -33,11 +33,12 @@ const apollo_server_1 = require("apollo-server");
 const path = __importStar(require("path"));
 const type_graphql_1 = require("type-graphql");
 const recipe_1 = require("./resolvers/recipe");
+const item_1 = require("./resolvers/item");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         // build TypeGraphQL executable schema
         const schema = yield type_graphql_1.buildSchema({
-            resolvers: [recipe_1.RecipeResolver],
+            resolvers: [recipe_1.RecipeResolver, item_1.ItemResolver],
             // automatically create `schema.gql` file with schema definition in current folder
             emitSchemaFile: path.resolve(__dirname, "schema.gql"),
         });
