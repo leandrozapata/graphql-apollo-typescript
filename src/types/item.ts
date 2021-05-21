@@ -28,7 +28,7 @@ export class Item {
   @Field()
   thumbail: string;
 
-  @Field(type => Int)
+  @Field(type => Float)
   price: number;
 
   @Field()

@@ -48,7 +48,7 @@ __decorate([
     __metadata("design:type", String)
 ], Item.prototype, "thumbail", void 0);
 __decorate([
-    type_graphql_1.Field(type => type_graphql_1.Int),
+    type_graphql_1.Field(type => type_graphql_1.Float),
     __metadata("design:type", Number)
 ], Item.prototype, "price", void 0);
 __decorate([

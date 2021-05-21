@@ -20,7 +20,7 @@ type Item {
   address: Address!
   currencyId: String!
   id: String!
-  price: Int!
+  price: Float!
   siteId: String!
   thumbail: String!
   title: String!
